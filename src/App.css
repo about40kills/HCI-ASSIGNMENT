@@ -1,0 +1,110 @@
+:root {
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  /* Dark mode colors */
+  --bg-container: rgba(145, 94, 5, 0.3);  /* Muted orange */
+  --bg-input: rgba(16, 68, 60, 0.3);      /* Muted teal */
+  --bg-pending: rgba(145, 5, 126, 0.2);
+  --bg-checkbox: rgb(231, 211, 225);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --border-opacity: rgba(255, 255, 255, 0.05);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+
+    /* Light mode colors */
+    --bg-container: rgba(145, 94, 5, 0.5);  /* Light orange */
+    --bg-input: rgba(16, 68, 60, 0.5);      /* Light teal */
+    --border-color: rgba(170, 160, 160, 0.1);
+    --bg-pending: rgba(145, 5, 126, 0.102);
+    --bg-checkbox: rgb(214, 186, 186);
+    --border-opacity: rgba(0, 0, 0, 0.05);
+  }
+}
+
+/* General Styles */
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 500px;
+  padding: 20px;
+  background: var(--bg-container);
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px var(--border-opacity);
+}
+
+/* Task Input */
+.task-input {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.task-input input {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-input);
+  flex: 1;
+  color: inherit;
+}
+
+.task-input button {
+  padding: 12px;
+  background: #914c05;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}
+
+/* Task List */
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background: var(--bg-container);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+/* Completed Task */
+.task-item.completed {
+  opacity: 0.5;
+  text-decoration: line-through;
+}
+
+/* Checkbox */
+.checkbox {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
