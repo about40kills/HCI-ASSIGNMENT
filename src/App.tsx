@@ -16,8 +16,9 @@ function App() {
 
   const handleLogout = () => {
     setTodos([]); // Reset todos
-    logout({ returnToUrl: window.location.origin });
+    logout({ logoutParams: { returnTo: window.location.origin } }); // ✅ Correct usage
   };
+  
 
   const addTodo = (text: string) => {
     if (text.trim()) {
@@ -55,14 +56,14 @@ function App() {
     <div className="min-h-screen bg-white px-8 py-6">
       <div className="max-w-2xl mx-auto">
         <header className="flex justify-between items-center mb-12">
-        <p className="text-3xl font-bold">
+        <p className="text-3xl font-bold -ml-70">
           BETTER<span className="text-red-600">.DO☑️</span>
         </p>
           <button onClick={handleLogout} className="text-gray-600 hover:text-gray-800 flex items-center">Log Out</button>
         </header>
 
         <section className="max-w-lg mx-auto mt-12">
-          <h2 className="text-lg font-semibold text-gray-700 mb-4">Today</h2>
+          <h2 className="text-lg font-semibold text-gray-700 mb-4"> <span className="mr-2">▽</span>Today</h2>
           
           {/* Add Todo Input */}
           <div className="mb-6">
